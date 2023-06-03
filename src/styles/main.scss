@@ -1,0 +1,48 @@
+@import './componentsStyles/navbar';
+@import './pagesStyles/home';
+@import './pagesStyles/blog';
+
+html {
+    body {
+        position: relative;
+        direction: ltr;
+        width: 100%;
+    }
+}
+
+.space {
+    position: relative;
+    
+    background-color: #5d2f67;
+
+    // navbar
+    @include Navbar();
+
+    // pages
+    &__page {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        padding-top: 100px;
+
+        box-sizing: border-box;
+
+        @include Home();
+        @include Blog();
+
+        &__page-content {
+            width: 1000px;
+            max-width: 95%;
+            margin: 0 auto;
+
+            &__title {
+                text-indent: 20px;
+
+                font-size: 2rem;
+                font-weight: 700;
+                color: #eda72e;
+            }
+        }
+    }
+    
+}
