@@ -1,6 +1,7 @@
 @import './componentsStyles/navbar';
 @import './pagesStyles/home';
 @import './pagesStyles/blog';
+@import './pagesStyles/post';
 
 html {
     body {
@@ -29,6 +30,7 @@ html {
 
         @include Home();
         @include Blog();
+        @include Post();
 
         &__page-content {
             width: 1000px;

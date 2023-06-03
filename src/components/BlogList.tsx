@@ -1,32 +1,36 @@
+import { useState, useEffect } from 'react';
 
-const BlogList = () => {
+import BlogListItem from './BlogListItem';
+
+
+const BlogList = (props: BlogListProps) => {
     return (
         <div className="space__page--blog__blog-list">
-            <div className="space__page--blog__blog-list__blog-item">
-                <div className="space__page--blog__blog-list__blog-item__title">
-                    New space desert
-                </div>
-                <div className="space__page--blog__blog-list__blog-item__author">
-                    by <b>John The Sharketer</b>
-                </div>
-                <div className="space__page--blog__blog-list__blog-item__date">
-                    23/02/2023
-                </div>
-                <div className="space__page--blog__blog-list__blog-item__text">
-                    Donec condimentum purus ex, eget suscipit lacus tristique in.
-                </div>
-            </div>
-            <div className="space__page--blog__blog-list__blog-item">
-                
-            </div>
-            <div className="space__page--blog__blog-list__blog-item">
-
-            </div>
-            <div className="space__page--blog__blog-list__blog-item">
-                
-            </div>
+            {
+                props.blogData.map((blogItem, index) => {
+                    return <BlogListItem
+                    key={`blogItem_${index}`}
+                    itemId={blogItem.itemId}
+                    title={blogItem.title}
+                    author={blogItem.author}
+                    date={blogItem.date}
+                    text={blogItem.text}
+                    delay={100 * index} />
+                })
+            }
         </div>
     )
+}
+
+type BlogListProps = {
+    blogData: {
+                itemId: string,
+                title: string,
+                author: string,
+                date: string,
+                text: string,
+                postText: string,
+              }[],
 }
 
 export default BlogList;
