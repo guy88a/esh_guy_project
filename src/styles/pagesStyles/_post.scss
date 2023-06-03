@@ -1,5 +1,7 @@
 @mixin Post() {
     &--post {
+        overflow: auto;
+        
         &__header {
             float: left;
             display: flex;
@@ -12,6 +14,8 @@
 
             color: #fdf8e3;
 
+            animation: slideheader 500ms;
+
             &__image {
                 width: 100px;
                 height: 100px;
@@ -19,10 +23,16 @@
                 background-color: #fdf8e3;
 
                 border-radius: 50%;
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
             }
 
             &__title {
                 text-indent: 10px;
+
+                animation: slidetitle 600ms;
             }
 
             &__author-date {
@@ -33,6 +43,8 @@
                 font-size: 0.875rem;
 
                 border-top: 1px solid #fdf8e3;
+
+                animation: slidetitle 600ms;
             }
         }
 
@@ -43,6 +55,39 @@
 
             color: #ecebe8;
             font-size: 1.125rem;
+
+            animation: slidecontent 500ms;
         }
+    }
+}
+
+@keyframes slideheader {
+    from {
+        transform: translateY(50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slidecontent {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slidetitle {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
