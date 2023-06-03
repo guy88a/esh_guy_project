@@ -10,8 +10,6 @@ const Post = () => {
     const { getBlogPost } = useBlogData();
     const postData = getBlogPost(postIdNumber);
 
-    console.info(postData);
-
     return postData ? (
         <div className="space__page | space__page--post">
             <div className="space__page__page-content">
